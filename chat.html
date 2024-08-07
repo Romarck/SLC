@@ -1,16 +1,69 @@
-	<script>
- window.difyChatbotConfig = {
-  token: 'TuloqsAsPojlIbIN',
-  baseUrl: 'http://lendario.pro'
- }
-</script>
-<script
- src="http://lendario.pro/embed.min.js"
- id="TuloqsAsPojlIbIN"
- defer>
-</script>
-<style>
-  #dify-chatbot-bubble-button {
-    background-color: #1C64F2 !important;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Flutuante</title>
+    <style>
+        /* Estilizando o botão flutuante */
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: 
+#007BFF;
+            color: 
+white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Estilizando a div do chatbot */
+        #chatbotContainer {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            border: 1px solid 
+#ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px 
+rgba(0,0,0,0.3);
+            z-index: 1000;
+            background-color: 
+white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão que abrirá o chat -->
+    <button id="chatButton">Chat</button>
+
+    <!-- Div do chatbot -->
+    <div id="chatbotContainer">
+        <script src="http://lendario.pro/embed.min.js" id="TuloqsAsPojlIbIN" defer></script>
+    </div>
+
+    <script>
+        // Função para mostrar e esconder o chatbot
+        const chatButton = document.getElementById('chatButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+
+        chatButton.addEventListener('click', () => {
+            if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
+                chatbotContainer.style.display = "block"; // Mostra o chatbot
+            } else {
+                chatbotContainer.style.display = "none"; // Esconde o chatbot
+            }
+        });
+    </script>
+
+</body>
+</html>
