@@ -1,11 +1,75 @@
-<!-- Widget JavaScript bundle -->
-<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=pt_BR"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Flutuante</title>
+    <style>
+        /* Estilizando o botão flutuante */
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: 
+#007BFF;
+            color: 
+white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
-<!-- Search widget element is not visible by default -->
-<gen-search-widget
-  configId="e4242ad3-29c1-440f-807f-d2ca3ef05b0f"
-  triggerId="searchWidgetTrigger">
-</gen-search-widget>
+        /* Estilizando a div do chatbot */
+        #chatbotContainer {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 600px;
+            border: 1px solid 
+#ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px 
+rgba(0,0,0,0.3);
+            z-index: 1000;
+            background-color: 
+white;
+        }
+    </style>
+</head>
+<body>
 
-<!-- Element that opens the widget on click. It does not have to be an input -->
-<input placeholder="Pesquise aqui" id="searchWidgetTrigger" />
+    <!-- Botão que abrirá o chat -->
+    <button id="chatButton">ChatNuclea</button>
+
+    <!-- Div do chatbot -->
+    <div id="chatbotContainer">
+        <iframe
+			 src="https://romarck.github.io/SLC/ChatNucleaVertex.html"
+			 style="width: 100%; height: 100%; min-height: 700px"
+			 frameborder="0"
+			 allow="microphone">
+		</iframe>
+    </div>
+
+    <script>
+        // Função para mostrar e esconder o chatbot
+        const chatButton = document.getElementById('chatButton');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+
+        chatButton.addEventListener('click', () => {
+            if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
+                chatbotContainer.style.display = "block"; // Mostra o chatbot
+            } else {
+                chatbotContainer.style.display = "none"; // Esconde o chatbot
+            }
+        });
+    </script>
+
+</body>
+</html>
+
