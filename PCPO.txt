@@ -1,0 +1,21 @@
+1: O que é a Plataforma do Cadastro Positivo (PCPO)?
+2: Qual é a função da PCPO? Quais serviços a PCPO oferece? 
+3: Como a PCPO contribui para o mercado financeiro?
+
+4: Quais são os processos de atualização de dados na PCPO?  
+5: O que é o processo de atualização completo na PCPO? 
+
+6: O que os participantes precisam fazer para aderir à PCPO?
+7: Quais são os requisitos para adesão à PCPO? 
+
+8: Como é garantida a segurança das informações na PCPO?
+9: Quais são as medidas de segurança implementadas pela PCPO? 
+
+10: O que deve ser feito em caso de problemas de comunicação com a PCPO?
+11: Como os participantes devem proceder se enfrentarem problemas de comunicação?
+
+12: O que é a Núclea no contexto da PCPO?
+13: Qual é o papel da Núclea na Plataforma do Cadastro Positivo? 
+
+14: Como os participantes podem acessar o Manual de Operações da PCPO?
+15: Onde o Manual de Operações do PCPO pode ser encontrado? Existe um portal específico? Há restrições no acesso ao documento?
