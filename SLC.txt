@@ -1,0 +1,19 @@
+1: O que é o Serviço de Liquidação de Cartões (SLC) e qual é sua função?
+2: Como o SLC processa os arquivos de compensação? 
+3: Quais são os principais envolvidos no arranjo de pagamento? O que é o módulo SILOC?
+
+4: Como os arquivos ASLC são tratados pelo sistema de Liquidação de Cartões?
+5: Quais são os tipos de arquivos ASLC mencionados? 
+6: Como são validados os arquivos recebidos? O que acontece se a validação falhar?
+
+7: O que são as grades horárias de processamento e qual a sua importância?
+8: Como funcionam as diferentes grades de câmbio? 
+9: O que acontece em cada ciclo de compensação? 
+10: Quais informações são entregues na grade horária?
+
+11: Qual a função dos arquivos ASLC050 e ASLC051 mencionados no documento?
+12: Que tipo de informações esses arquivos disponibilizam? 
+13: Como eles auxiliam os participantes? Quais dados são incluídos nos arquivos?
+
+14: O que é um "Número Único Liquidação" (NULiquid) e qual sua importância no processo?
+15: Como o NULiquid é gerado? O que ele representa no contexto das operações de pagamento?
