@@ -1,0 +1,20 @@
+1: Qual é o objetivo do Manual de Operações da C3 Registradora?
+2: O que descreve o Manual de Operações da C3 Registradora? 
+
+3: Como é feita a atualização de dados cadastrais na C3 Registradora?
+4: O que deve ser enviado mensalmente para a Conciliação na C3 Registradora?
+
+5: Qual é a duração da vigência do Manual de Operações da C3 Registradora?
+6: Quando o Manual de Operações da C3 Registradora foi publicado? 
+
+7: O que é necessário para a inclusão de Contratos e Eventos de Movimentação na C3 Registradora?
+8: Como os Participantes devem incluir contratos na C3 Registradora? 
+
+9: Qual é a definição de "Cisão Parcial" no contexto do manual?
+
+10: O que acontece com as solicitações de recompra e liquidação antecipada?
+11: Qual é o procedimento para recompra de contratos na C3 Registradora? 
+
+12: O que é a validação de contratos na C3 Registradora? 
+
+13: O que é o SCR no contexto do Manual de Operações na C3 Registradora?
