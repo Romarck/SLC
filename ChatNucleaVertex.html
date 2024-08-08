@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação ChatNuclea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: 
+#282c34;
+            padding: 20px;
+            color: 
+white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: 
+white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/random/1920x1080?nature') no-repeat center center/cover;
+            color: 
+white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .services {
+            background-color: 
+#f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: 
+white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 5px;
+            display: inline-block;
+            width: calc(33% - 60px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: 
+#282c34;
+            color: 
+white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">ChatNuclea</div>
+
+    </header>
+
+<section class="hero">
+
+		<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;">
+		<p><span style="color:#000000">🤖ChatNuclea</span></p>
+
+		<p><span style="color:#000000">Ol&aacute;! Eu sou um Assistente Virtual da N&uacute;clea e estou aqui para responder suas d&uacute;vida! <br>Por enquanto, estou treinado com informa&ccedil;&otilde;es sobre os produtos: SLC, C3 e PCPO. <br>Como posso te ajudar hoje?</span></p>
+		</div>
+		<br>
+		</br>
+				<!-- Widget JavaScript bundle -->
+				<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=pt_BR"></script>
+
+				<!-- Search widget element is not visible by default -->
+				<gen-search-widget
+				  configId="e4242ad3-29c1-440f-807f-d2ca3ef05b0f"
+				  triggerId="searchWidgetTrigger">
+				</gen-search-widget>
+
+				<!-- Element that opens the widget on click. It does not have to be an input -->
+				<button id="searchWidgetTrigger" style="background-color: #0066ff; color: #ffffff; border: none;"">Iniciar Conversa</button>
+
+
+</section>
+
+
+</body>
+</html>
