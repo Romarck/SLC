@@ -28,6 +28,7 @@ white;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Permite quebra de linha no menu se necessário */
         }
 
         nav ul li {
@@ -48,6 +49,11 @@ white;
             padding: 100px 20px;
         }
 
+        .hero img {
+            width: 100%; /* Imagem ocupando 100% da largura */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
         .services {
             background-color: 
 #f0f0f0;
@@ -63,6 +69,7 @@ white;
             border-radius: 5px;
             display: inline-block;
             width: calc(33% - 60px);
+            box-sizing: border-box; /* Inclui padding e margin na largura total */
         }
 
         footer {
@@ -76,8 +83,71 @@ white;
             bottom: 0;
             width: 100%;
         }
+
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: 
+#007BFF;
+            color: 
+white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #chatbotContainer {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            height: 450px;
+            border: 1px solid 
+#ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px 
+rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            background-color: 
+white;
+        }
+
+        /* Media Queries para ajustar o layout em telas menores */
+        @media (max-width: 768px) {
+            .service-item {
+                width: calc(50% - 40px); /* Duas colunas para telas médias */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                width: calc(100% - 40px); /* Uma coluna para celulares */
+                margin: 10px 0; /* Margem menor em telas pequenas */
+            }
+
+            header {
+                flex-direction: column; /* Muda para coluna em telas pequenas */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; /* Menu vertical em telas pequenas */
+                align-items: flex-start;
+                width: 100%; /* Ocupa 100% da largura */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Margem vertical menor */
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -87,7 +157,6 @@ white;
                 <li><a href="index.html">Home</a></li>
                 <li><a href="IndexVertex.html">Chat Vertex</a></li>
                 <li><a href="IndexDify.html">Chat Dify</a></li>
-
             </ul>
         </nav>
     </header>
