@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vertex ChatNuclea</title>
     <style>
-
-	
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -30,6 +28,7 @@ white;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Permite quebra de linha no menu se necessário */
         }
 
         nav ul li {
@@ -50,6 +49,11 @@ white;
             padding: 100px 20px;
         }
 
+        .hero img {
+            width: 100%; /* Imagem ocupando 100% da largura */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
         .services {
             background-color: 
 #f0f0f0;
@@ -65,6 +69,7 @@ white;
             border-radius: 5px;
             display: inline-block;
             width: calc(33% - 60px);
+            box-sizing: border-box; /* Inclui padding e margin na largura total */
         }
 
         footer {
@@ -78,8 +83,7 @@ white;
             bottom: 0;
             width: 100%;
         }
-		
-			        /* Estilizando o botão flutuante */
+
         #chatButton {
             position: fixed;
             bottom: 20px;
@@ -95,7 +99,6 @@ white;
             z-index: 1000;
         }
 
-        /* Estilizando a div do chatbot */
         #chatbotContainer {
             display: none; /* Inicialmente oculto */
             position: fixed;
@@ -108,10 +111,39 @@ white;
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 0 10px 
-rgba(0,0,0,0.3);
+rgba(0, 0, 0, 0.3);
             z-index: 1000;
             background-color: 
 white;
+        }
+
+        /* Media Queries para ajustar o layout em telas menores */
+        @media (max-width: 768px) {
+            .service-item {
+                width: calc(50% - 40px); /* Duas colunas para telas médias */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                width: calc(100% - 40px); /* Uma coluna para celulares */
+                margin: 10px 0; /* Margem menor em telas pequenas */
+            }
+
+            header {
+                flex-direction: column; /* Muda para coluna em telas pequenas */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; /* Menu vertical em telas pequenas */
+                align-items: flex-start;
+                width: 100%; /* Ocupa 100% da largura */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Margem vertical menor */
+            }
         }
     </style>
 </head>
@@ -124,34 +156,43 @@ white;
                 <li><a href="index.html">Home</a></li>
                 <li><a href="IndexVertex.html">Chat Vertex</a></li>
                 <li><a href="IndexDify.html">Chat Dify</a></li>
-
             </ul>
         </nav>
     </header>
 
-<section class="hero">
-   <p><img alt="" height="454" src="fundo.png" width="1347" /></p>
-</section>
+    <section class="hero">
+        <p><img alt="" height="454" src="fundo.png" /></p>
+    </section>
 
     <section class="services">
         <h2>Perguntas</h2>
-        <div class="service-item"><a href="PCPO.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">PCPO</a></div>
-        <div class="service-item"><a href="C3.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">C3</a></div>
-        <div class="service-item"><a href="SLC.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">SLC</a></div>
+        <div class="service-item">
+            <a href="PCPO.txt"
+               onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">
+               PCPO
+            </a>
+        </div>
+        <div class="service-item">
+            <a href="C3.txt"
+               onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">
+               C3
+            </a>
+        </div>
+        <div class="service-item">
+            <a href="SLC.txt"
+               onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">
+               SLC
+            </a>
+        </div>
     </section>
-
 
     <!-- Botão que abrirá o chat -->
     <button id="chatButton">ChatNuclaVertex</button>
 
     <!-- Div do chatbot -->
     <div id="chatbotContainer">
-        <iframe
-			 src="https://romarck.github.io/SLC/PopIntroVertex.html"
-			 style="width: 100%; height: 100%; min-height: 700px"
-			 frameborder="0"
-			 allow="microphone">
-		</iframe>
+        <iframe src="https://romarck.github.io/SLC/PopIntroVertex.html" style="width: 100%; height: 100%;"
+               frameborder="0" allow="microphone"></iframe>
     </div>
 
     <script>
@@ -160,16 +201,9 @@ white;
         const chatbotContainer = document.getElementById('chatbotContainer');
 
         chatButton.addEventListener('click', () => {
-            if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
-                chatbotContainer.style.display = "block"; // Mostra o chatbot
-            } else {
-                chatbotContainer.style.display = "none"; // Esconde o chatbot
-            }
+            chatbotContainer.style.display = chatbotContainer.style.display === "none" || chatbotContainer.style.display === "" ? "block" : "none";
         });
     </script>
-
-</section>
-
 
     <footer>
         <p>&copy; 2024 ChatNuclea - Todos os direitos reservados</p>
