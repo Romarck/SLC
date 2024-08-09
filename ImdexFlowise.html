@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify ChatNuclea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: 
+#282c34;
+            padding: 20px;
+            color: 
+white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens do menu quebrem linha em telas menores */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: 
+white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/random/1920x1080?nature') no-repeat center center/cover;
+            color: 
+white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero img {
+            width: 100%; /* Imagem ocupa 100% da largura do container */
+            height: auto; /* Mantém a proporção */
+        }
+
+        .services {
+            background-color: 
+#f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: 
+white;
+            margin: 10px; /* Reduzido para melhor espaçamento */
+            padding: 30px;
+            border-radius: 5px;
+            display: inline-block;
+            width: calc(33% - 20px); /* Três colunas por padrão */
+            box-sizing: border-box; /* Inclui padding e margin no cálculo de largura */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: 
+#282c34;
+            color: 
+white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            .service-item {
+                width: calc(50% - 20px); /* Duas colunas para telas maiores que 480px */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                width: 100%; /* Uma coluna em celulares */
+            }
+
+            header {
+                flex-direction: column; /* Header em coluna22265Vamos lá! Para tornar seu código HTML responsivo, faremos algumas mudanças nas folhas de estilo (CSS) para que o layout se adapte adequadamente a telas de diferentes tamanhos, especialmente dispositivos móveis. Vamos abordar os principais pontos que você deve considerar.
+
+### Ajustes Propostos para Responsividade
+
+1. **Imagens Responsivas**: Certifique-se de que a imagem na seção `.hero` seja responsiva, isto é, ela deve adaptar seu tamanho de acordo com a tela.
+
+2. **Flexibilidade do Layout**: Utilizaremos `flexbox` e `media queries` para adaptar o layout das seções e dos itens de serviço.
+
+3. **Espaçamento e Alinhamento**: As margens e o preenchimento devem ser ajustados para evitar que os elementos fiquem muito juntos em telas menores.
+
+### Implementação do Código
+
+Aqui está o código ajustado:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify ChatNuclea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #282c34;
+            padding: 20px;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Permitir que os itens do menu quebrem para a próxima linha */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: 
+white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/random/1920x1080?nature') no-repeat center center/cover;
+            color: 
+white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero img {
+            width: 100%; /* Faz a imagem se redimensionar de acordo com a tela */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        .services {
+            background-color: 
+#f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .service-item {
+            background-color: 
+white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 5px;
+            display: inline-block;
+            width: calc(33% - 60px);
+            box-sizing: border-box; /* Inclui padding e margin na largura total */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: 
+#282c34;
+            color: 
+white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media Queries para ajustar o layout em telas menores */
+        @media (max-width: 768px) {
+            .service-item {
+                width: calc(50% - 60px); /* Ajuste para duas colunas em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                width: calc(100% - 40px); /* Uma coluna para celulares */
+                margin: 10px; /* Margem menor em telas muito pequenas */
+            }
+
+            header {
+                flex-direction: column; /* Muda o header para coluna em telas pequenas */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; /* Menu vertical em telas pequenas */
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Margem vertical menor */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">ChatNuclea</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="IndexVertex.html">Chat Vertex</a></li>
+                <li><a href="IndexDify.html">Chat Dify</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p><img alt="Fundo" src="fundo.png" /></p>
+    </section>
+
+    <section class="services">
+        <h2>Perguntas</h2>
+        <div class="service-item">
+            <a href="PCPO.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">PCPO</a>
+        </div>
+        <div class="service-item">
+            <a href="C3.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">C3</a>
+        </div>
+        <div class="service-item">
+            <a href="SLC.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">SLC</a>
+        </div>
+    </section>
+
+    <script>
+        window.difyChatbotConfig = {
+            token: 'TuloqsAsPojlIbIN',
+            baseUrl: 'https://lendario.pro'
+        }
+    </script>
+    <script src="https://lendario.pro/embed.min.js" id="TuloqsAsPojlIbIN" defer></script>
+    <style>
+        #dify-chatbot-bubble-button {
+            background-color: 
+#1C64F2 !important;
+        }
+    </style>
+
+    <footer>
+        <p>&copy; 2024 ChatNuclea - Todos os direitos reservados</p>
+    </footer>
+</body>
+
+</html>
