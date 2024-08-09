@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iframe Dify ChatNuclea</title>
+    <title>Pop Iframe Dify ChatNuclea</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,6 +28,7 @@ white;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Permite que o menu quebre linha se necessário */
         }
 
         nav ul li {
@@ -63,6 +64,7 @@ white;
             border-radius: 5px;
             display: inline-block;
             width: calc(33% - 60px);
+            box-sizing: border-box; /* Inclui padding e margin na largura total */
         }
 
         footer {
@@ -76,12 +78,56 @@ white;
             bottom: 0;
             width: 100%;
         }
+
+        /* Media Queries para ajustar o layout em telas menores */
+        @media (max-width: 768px) {
+            .service-item {
+                width: calc(50% - 40px); /* Duas colunas para telas médias */
+            }
+
+            iframe {
+                min-height: 500px; /* Ajustar altura mínima para iframes em telas médias */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-item {
+                width: calc(100% - 40px); /* Uma coluna para celulares */
+                margin: 10px 0; /* Margem menor em telas pequenas */
+            }
+
+            header {
+                flex-direction: column; /* Muda para coluna em telas pequenas */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column; /* Menu vertical em telas pequenas */
+                align-items: flex-start;
+                width: 100%; /* Ocupa 100% da largura */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Margem vertical menor */
+            }
+
+            .hero {
+                padding: 50px 20px; /* Menos padding na seção hero em telas pequenas */
+            }
+        }
+
+        iframe {
+            width: 100%; /* O iframe ocupa toda a largura disponível */
+            height: 100%; /* O iframe ocupará 100% da altura disponível */
+            min-height: 700px; /* Altura mínima do iframe */
+            border: none; /* Remover borda do iframe */
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="logo">ChatNuclea</div>
+        <div class="logo">ChatNucleaDify</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -92,15 +138,10 @@ white;
         </nav>
     </header>
 
- <iframe
- src="https://lendario.pro/chatbot/TuloqsAsPojlIbIN"
- style="width: 100%; height: 100%; min-height: 700px"
- frameborder="0"
- allow="microphone">
-</iframe>
-
-
-
+    <iframe
+        src="https://lendario.pro/chatbot/TuloqsAsPojlIbIN"
+        allow="microphone">
+    </iframe>
 
     <footer>
         <p>&copy; 2024 ChatNuclea - Todos os direitos reservados</p>
