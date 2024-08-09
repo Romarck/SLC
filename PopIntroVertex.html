@@ -28,6 +28,7 @@ white;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Permite quebra de linha no menu se necessário */
         }
 
         nav ul li {
@@ -48,21 +49,16 @@ white;
             padding: 100px 20px;
         }
 
-        .services {
-            background-color: 
-#f0f0f0;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .service-item {
-            background-color: 
-white;
-            margin: 20px;
-            padding: 30px;
-            border-radius: 5px;
-            display: inline-block;
-            width: calc(33% - 60px);
+        .info-box {
+            background: 
+#eee;
+            border: 1px solid 
+#ccc;
+            padding: 10px;
+            margin-top: 20px;
+            display: inline-block; /* Para permitir que a largura se ajuste ao conteúdo */
+            max-width: 90%; /* Limitar a largura para telas pequenas */
+            box-sizing: border-box; /* Inclui o padding e margens na largura total */
         }
 
         footer {
@@ -76,39 +72,76 @@ white;
             bottom: 0;
             width: 100%;
         }
+
+        /* Botão do widget */
+        #searchWidgetTrigger {
+            background-color: 
+#0066ff;
+            color: 
+#ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer; /* Mudança do cursor ao passar o mouse */
+            border-radius: 5px; /* Borda arredondada para o botão */
+            margin-top: 20px; /* Espaço acima do botão */
+        }
+
+        /* Media Queries para ajustar o layout em telas menores */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 20px; /* Menos padding na seção hero */
+            }
+
+            header {
+                flex-direction: column; /* Alteração do header para coluna em telas pequenas */
+                align-items: flex-start; /* Alinhamento à esquerda */
+            }
+
+            nav ul {
+                flex-direction: column; /* Muda a direção do menu para coluna */
+                align-items: flex-start; /* Alinha à esquerda */
+                width: 100%; /* Ocupa toda a largura */
+            }
+
+            nav ul li {
+                margin: 5px 0; /* Margem vertical menor */
+            }
+
+            .info-box {
+                max-width: 100%; /* Ocupa 100% da largura na versão móvel */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 10px; /* Reduz ainda mais o padding */
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="logo">ChatNucleaVertex</div>
-
     </header>
 
-<section class="hero">
+    <section class="hero">
+        <div class="info-box">
+            <p><span style="color:
+#000000">🤖ChatNuclea</span></p>
+            <p><span style="color:
+#000000">Ol&aacute;! Eu sou um Assistente Virtual da N&uacute;clea e estou aqui para responder suas d&uacute;vidas! <br>Por enquanto, estou treinado com informa&ccedil;&otilde;es sobre os produtos: SLC, C3 e PCPO.</span></p>
+        </div>
+        <br>
+        <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=pt_BR"></script>
+        <gen-search-widget configId="e4242ad3-29c1-440f-807f-d2ca3ef05b0f" triggerId="searchWidgetTrigger">
+        </gen-search-widget>
+        <button id="searchWidgetTrigger">Iniciar Conversa</button>
+    </section>
 
-		<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;">
-		<p><span style="color:#000000">🤖ChatNuclea</span></p>
-
-		<p><span style="color:#000000">Ol&aacute;! Eu sou um Assistente Virtual da N&uacute;clea e estou aqui para responder suas d&uacute;vida! <br>Por enquanto, estou treinado com informa&ccedil;&otilde;es sobre os produtos: SLC, C3 e PCPO.</span></p>
-		</div>
-		<br>
-		</br>
-				<!-- Widget JavaScript bundle -->
-				<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=pt_BR"></script>
-
-				<!-- Search widget element is not visible by default -->
-				<gen-search-widget
-				  configId="e4242ad3-29c1-440f-807f-d2ca3ef05b0f"
-				  triggerId="searchWidgetTrigger">
-				</gen-search-widget>
-
-				<!-- Element that opens the widget on click. It does not have to be an input -->
-				<button id="searchWidgetTrigger" style="background-color: #0066ff; color: #ffffff; border: none;"">Iniciar Conversa</button>
-
-
-</section>
-
-
+    <footer>
+        <p>&copy; 2024 ChatNuclea - Todos os direitos reservados</p>
+    </footer>
 </body>
+
 </html>
