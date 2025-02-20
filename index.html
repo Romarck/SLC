@@ -1,182 +1,75 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index ChatNuclea </title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: 
-#282c34;
-            padding: 20px;
-            color: 
-white;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap; /* Permite quebra de linha no menu se necessário */
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav a {
-            color: 
-white;
-            text-decoration: none;
-        }
-
-        .hero {
-            background: url('https://source.unsplash.com/random/1920x1080?nature') no-repeat center center/cover;
-            color: 
-white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero img {
-            width: 100%; /* Imagem ocupando 100% da largura */
-            height: auto; /* Mantém a proporção da imagem */
-        }
-
-        .services {
-            background-color: 
-#f0f0f0;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .service-item {
-            background-color: 
-white;
-            margin: 20px;
-            padding: 30px;
-            border-radius: 5px;
-            display: inline-block;
-            width: calc(33% - 60px);
-            box-sizing: border-box; /* Inclui padding e margin na largura total */
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: 
-#282c34;
-            color: 
-white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #chatButton {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: 
-#007BFF;
-            color: 
-white;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        #chatbotContainer {
-            display: none; /* Inicialmente oculto */
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 300px;
-            height: 450px;
-            border: 1px solid 
-#ccc;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 0 10px 
-rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            background-color: 
-white;
-        }
-
-        /* Media Queries para ajustar o layout em telas menores */
-        @media (max-width: 768px) {
-            .service-item {
-                width: calc(50% - 40px); /* Duas colunas para telas médias */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .service-item {
-                width: calc(100% - 40px); /* Uma coluna para celulares */
-                margin: 10px 0; /* Margem menor em telas pequenas */
-            }
-
-            header {
-                flex-direction: column; /* Muda para coluna em telas pequenas */
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column; /* Menu vertical em telas pequenas */
-                align-items: flex-start;
-                width: 100%; /* Ocupa 100% da largura */
-            }
-
-            nav ul li {
-                margin: 5px 0; /* Margem vertical menor */
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão Flutuante para Chatbot</title>
+  <style>
+    /* Estilo do botão flutuante */
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff; /* Cor do botão */
+      color: white; /* Cor do ícone */
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000; /* Certifique-se de que o botão fique acima de outros elementos */
+    }
+ 
+    .chatbot-button:hover {
+      background-color: #0056b3; /* Cor ao passar o mouse */
+    }
+ 
+    /* Estilo do modal do chatbot */
+    .chatbot-modal {
+      display: none; /* Escondido por padrão */
+      position: fixed;
+      bottom: 90px; /* Ajuste a posição em relação ao botão */
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1001; /* Acima do botão */
+    }
+ 
+    .chatbot-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+ 
+    .close-chatbot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
+ 
+<!-- Botão Flutuante -->
+<button class="chatbot-button" id="chatbotButton">
+  💬 <!-- Ícone de mensagem -->
+</button>
+ 
+<!-- Modal do Chatbot -->
+<div class="chatbot-modal" id="chatbotModal">
+  <button class="close-chatbot" id="closeChatbot">✖</button>
 
-    <header>
-        <div class="logo">ChatNuclea</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="IndexVertex.html">Chat Vertex</a></li>
-                <li><a href="IndexDify.html">Chat Dify</a></li>
-            </ul>
-        </nav>
-    </header>
-
-<section class="hero">
-   <p><img alt="" height="454" src="fundo.png" width="1347" /></p>
-</section>
-
-    <section class="services">
-        <h2>Perguntas</h2>
-        <div class="service-item"><a href="PCPO.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">PCPO</a></div>
-        <div class="service-item"><a href="C3.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">C3</a></div>
-        <div class="service-item"><a href="SLC.txt" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=400,height=400'); return false;">SLC</a></div>
-    </section>
-
-
-    <footer>
-        <p>&copy; 2024 ChatNuclea - Todos os direitos reservados</p>
-    </footer>
-</body>
+<!-- Código AnythingLLM   
 <!--
 Paste this script at the bottom of your HTML before the </body> tag.
 See more style and config options on our docs
@@ -187,5 +80,37 @@ data-embed-id="f27b759f-4ec4-4fc3-816c-a8782fb6778d"
 data-base-api-url="http://pocdify.cip-desenv.net:3000/api/embed"
 src="http://pocdify.cip-desenv.net:3000/embed/anythingllm-chat-widget.min.js">
 </script>
-<!-- AnythingLLM (https://anythingllm.com) -->
+<!-- AnythingLLM (https://anythingllm.com) -->    
+-->
+
+    
+  <!-- Substitua o src abaixo pelo URL do seu chatbot -->
+<iframe src="https://seuchatbot.com"></iframe>
+</div>
+ 
+<script>
+  // Seleciona os elementos
+  const chatbotButton = document.getElementById('chatbotButton');
+  const chatbotModal = document.getElementById('chatbotModal');
+  const closeChatbot = document.getElementById('closeChatbot');
+ 
+  // Abre o modal ao clicar no botão
+  chatbotButton.addEventListener('click', () => {
+chatbotModal.style.display = 'block';
+  });
+ 
+  // Fecha o modal ao clicar no botão de fechar
+  closeChatbot.addEventListener('click', () => {
+chatbotModal.style.display = 'none';
+  });
+ 
+  // Fecha o modal ao clicar fora dele (opcional)
+  window.addEventListener('click', (event) => {
+    if (event.target === chatbotModal) {
+chatbotModal.style.display = 'none';
+    }
+  });
+</script>
+ 
+</body>
 </html>
