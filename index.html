@@ -1,5 +1,85 @@
-<script
-  data-embed-id="f27b759f-4ec4-4fc3-816c-a8782fb6778d"
-  data-base-api-url="http://localhost:3001/api/embed"
-  src="http://localhost:3000/embed/anythingllm-chat-widget.min.js"
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chatbot Flutuante</title>
+<style>
+  /* Estilos para o botão flutuante */
+  .chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* Forma arredondada */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+  }
+
+  .chatbot-button:hover {
+    background-color: #0056b3; /* Cor de fundo mais escura no hover */
+  }
+
+  /* Estilos para o container do chatbot (inicialmente oculto) */
+  .chatbot-container {
+    position: fixed;
+    bottom: 80px; /* Ajuste a posição para cima do botão */
+    right: 20px;
+    width: 350px; /* Largura do chatbot */
+    height: 500px; /* Altura do chatbot */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: none; /* Inicialmente oculto */
+    overflow: hidden; /* Impede que o conteúdo do chatbot vaze */
+  }
+
+  .chatbot-container.active {
+    display: block; /* Torna o container visível quando a classe 'active' é adicionada */
+  }
+
+  /* Estilos para o iframe (se necessário, dependendo de como o AnythingLLM funciona) */
+  .chatbot-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Botão flutuante -->
+  <button class="chatbot-button" id="chatbot-toggle">Chatbot</button>
+
+  <!-- Container para o chatbot -->
+  <div class="chatbot-container" id="chatbot-container">
+    <!-- O script do AnythingLLM será inserido aqui dinamicamente -->
+  </div>
+
+  <script>
+    // Script para controlar a visibilidade do chatbot
+    const chatbotButton = document.getElementById('chatbot-toggle');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    let chatbotScriptInjected = false; // Flag para controlar se o script foi injetado
+
+    chatbotButton.addEventListener('click', () => {
+      chatbotContainer.classList.toggle('active');
+
+      // Injeta o script do AnythingLLM apenas na primeira vez que o botão é clicado
+      if (!chatbotScriptInjected) {
+        const script = document.createElement('script');
+        script.dataset.embedId = "f27b759f-4ec4-4fc3-816c-a8782fb6778d";
+        script.dataset.baseApiUrl = "http://pocdify.cip-desenv.net:3000/api/embed";
+        script.src = "http://pocdify.cip-desenv.net:3000/embed/anythingllm-chat-widget.min.js";
+        chatbotContainer.appendChild(script); // Adiciona o script ao container
+        chatbotScriptInjected = true;
+      }
+    });
+  </script>
+
+</body>
+</html>
